@@ -22,11 +22,13 @@
     list.foreach(println)
 
     println()
+    //Question 3
     println("Question 3")
     val num = mean(223,48)
     println(f"$num%.2f")
 
     println()
+    //Question 4
     println("Question 4")
 
     var numbers = scala.io.StdIn.readLine()
