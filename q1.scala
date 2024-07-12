@@ -13,7 +13,7 @@ def displayInventory(items: List[String],quant: List[Int]):String = {
   
     if (items.isEmpty)
     {
-        "Stock is :\n"
+        "Stock  :\n"
     }else 
     {
         displayInventory(items.tail,quant.tail) + items.head + ": " + quant.head + "\n"
@@ -25,7 +25,7 @@ def restockItem(item: String, items: List[String], add: Int, quant: List[Int]):L
     var index = items.indexOf(item);
     if(index == -1)
     {
-        println("There is no such item in the storage\n")
+        println("Item is not in the storage\n")
         quant
     }else
     {
@@ -40,12 +40,12 @@ def sellItem(item: String, items: List[String], sell: Int, quant: List[Int]):Lis
     var index = items.indexOf(item);
     if(index == -1)
     {
-        println("There is no such item in the storage\n")
+        println("Item is not in the storage\n")
         quant
     }
     else if(quant(index) < sell)
     {
-        println("Not enough stock in the storage\n")
+        println("stock is not enough\n")
         quant
     }else
     {
