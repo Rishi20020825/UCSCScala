@@ -1,19 +1,71 @@
-@main def main(): Unit = 
-{
-  fibonacciSeq(12)
-}
 
-def fibonacciSeq(n: Int): Unit = 
+case class Book(title: String, author: String, isbn: String)
+
+
+object Library 
 {
-  for (i <- 0 until n) 
+ 
+  var books: Set[Book] = Set(
+    Book("2022 Last", "Craig Simpson", "20022002"),
+    Book("Harry Wilder", "Wilder HArp", "20022005"),
+    Book("The Tot", "G.Sakri", "20022004")
+  )
+
+  
+  def addBook(book: Book): Unit = 
   {
-    println(fibonacci(i))
+    books += book
+    println(s"Book added: ${book.title}")
+  }
+
+ 
+  def removeBook(isbn: String): Unit = 
+  {
+    books = books.filterNot(_.isbn == isbn)
+    println(s"Book with ISBN $isbn removed.")
+  }
+
+
+  def bookExists(isbn: String): Boolean = 
+  {
+    books.exists(_.isbn == isbn)
+  }
+
+ 
+  def displayCollection(): Unit = 
+  {
+    println("Current library collection:")
+    books.foreach(book => println(s"Title: ${book.title}, Author: ${book.author}, ISBN: ${book.isbn}"))
+  }
+
+  def searchByTitle(title: String): Unit = 
+  {
+    val result = books.find(_.title.equalsIgnoreCase(title))
+    result match {
+      case Some(book) => println(s"Found: Title: ${book.title}, Author: ${book.author}, ISBN: ${book.isbn}")
+      case None => println(s"No book found with title '$title'.")
+    }
+  }
+
+  def displayBooksByAuthor(author: String): Unit = 
+  {
+    val authorBooks = books.filter(_.author.equalsIgnoreCase(author))
+    if (authorBooks.nonEmpty) {
+      println(s"Books by $author:")
+      authorBooks.foreach(book => println(s"Title: ${book.title}, ISBN: ${book.isbn}"))
+    } else {
+      println(s"No books found by $author.")
+    }
   }
 }
 
-def fibonacci(n: Int): Int = n match 
-{
-  case 0 => 0
-  case 1 => 1
-  case _ => fibonacci(n - 1) + fibonacci(n - 2)
+
+@main def main(): Unit = {
+  Library.displayCollection()
+  Library.addBook(Book("Last Day", "Adolf Hitler", "20012001"))
+  Library.removeBook("20022005")
+  println(s"Book exists with ISBN 20012001: ${Library.bookExists("20012001")}")
+  Library.searchByTitle("2022 Last")
+  Library.displayBooksByAuthor("G.Sakri")
+  Library.displayCollection()
 }
