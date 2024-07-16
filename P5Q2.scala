@@ -38,14 +38,7 @@ object Library
     books.foreach(book => println(s"Title: ${book.title}, Author: ${book.author}, ISBN: ${book.isbn}"))
   }
 
-  def searchByTitle(title: String): Unit = 
-  {
-    val result = books.find(_.title.equalsIgnoreCase(title))
-    result match {
-      case Some(book) => println(s"Found: Title: ${book.title}, Author: ${book.author}, ISBN: ${book.isbn}")
-      case None => println(s"No book found with title '$title'.")
-    }
-  }
+  
 
   def displayBooksByAuthor(author: String): Unit = 
   {
@@ -65,7 +58,7 @@ object Library
   Library.addBook(Book("Last Day", "Adolf Hitler", "20012001"))
   Library.removeBook("20022005")
   println(s"Book exists with ISBN 20012001: ${Library.bookExists("20012001")}")
-  Library.searchByTitle("2022 Last")
+  
   Library.displayBooksByAuthor("G.Sakri")
   Library.displayCollection()
 }
