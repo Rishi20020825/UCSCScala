@@ -1,14 +1,14 @@
 case class Item(name: String, quantity: Int, price: Float)
 var inventory1 = Map(
-  "123D" -> Item("Apple", 12, 32.50), 
-  "124D" -> Item("Orange", 33, 12.50), 
-  "125D" -> Item("Banana", 43, 42.50),
+  "123D" -> Item("Banana", 12, 32.50), 
+  "124D" -> Item("Pineapple", 33, 12.50), 
+  "125D" -> Item("Mangus", 43, 42.50),
   "126D" -> Item("Papaya", 18, 172.50))
 
 var inventory2 = Map(
-  "123D" -> Item("Apple", 42, 132.50),
-  "124D" -> Item("Orange", 55, 44.50), 
-  "125D" -> Item("Banana", 21, 35.50),
+  "123D" -> Item("Banana", 42, 132.50),
+  "124D" -> Item("Pineapple", 55, 44.50), 
+  "125D" -> Item("Mangus", 21, 35.50),
   "126D" -> Item("Papaya", 18, 17.50))
 
 
