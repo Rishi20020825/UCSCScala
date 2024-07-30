@@ -5,7 +5,7 @@
 
 def getStudentInfo(): (String, Int, Int, Double, Char) = {
 
-  println("Enter student's name, marks, and total possible marks:")
+  println("Enter student's name, marks, and total  marks:")
   val student = (
     scala.io.StdIn.readLine,
     scala.io.StdIn.readInt,
