@@ -5,14 +5,9 @@ object inputtype {
       return
     }
 
-    val input = try {
-      args(0).toInt
-    } catch {
-      case _: NumberFormatException =>
-        println("The input must be a valid integer.")
-        return
-    }
-
+    
+      val input = args(0).toInt
+    
     val Negative: Int => Boolean = _ <= 0
     val Even: Int => Boolean = _ % 2 == 0
     val Odd: Int => Boolean = _ % 2 != 0
